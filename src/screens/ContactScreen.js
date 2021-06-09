@@ -1,6 +1,6 @@
 import React from 'react'
-import {View, FlatList, Text} from "react-native"
-import Contact from './components/Contact'
+import {FlatList, SafeAreaView} from "react-native"
+import Contact from '../components/Contact'
 
 export default function ContactScreen() {
     const contacts = [
@@ -12,9 +12,9 @@ export default function ContactScreen() {
         {name: 'Meeky Pangbe', number: '723-093-9833'}
     ]
 
-
+  
     return (
-        <View>
+        <SafeAreaView>
             <FlatList 
                 data={contacts}
                 renderItem={({ item }) => {
@@ -22,6 +22,6 @@ export default function ContactScreen() {
                 }}
                 keyExtractor={(item)=>item.number} 
             />
-        </View>
+        </SafeAreaView>
     )
 }

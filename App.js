@@ -1,30 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import React, {Component} from 'react';
-import { View, StyleSheet} from 'react-native'
-import Contact from './components/Contact';
-import ContactScreen from './ContactScreen';
+import React from 'react';
+import { Provider } from 'react-redux'
+import {store, persistor} from './src/redux/store'
+import AppContainer from './src/navigation/navigation';
+import {PersistGate} from "redux-persist/integration/react"
 
 
-class App extends Component {
-  render (){
-    return (
-      <View style={styles.container}>
 
-        <ContactScreen />
-        
-        <StatusBar style="auto" />
-      </View>
-    );
-  }
+function App() {
+  return (
+    <Provider store={store}>
+      <PersistGate loading={null} persistor= {persistor}>
+      <AppContainer />
+      </PersistGate>
+    </Provider>
+  )
 }
 
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 50
-  }
-});
-
-
-
-export default App;
+export default App; 
