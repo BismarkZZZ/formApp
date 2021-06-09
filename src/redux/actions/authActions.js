@@ -6,7 +6,7 @@ export function createEmailAccount (email,password){
 
     return async (dispatch) =>{
         try {
-            const user = await firebse
+            const user = await firebase
             .auth()
             .createUserWithEmailAndPassword(email,password)
             console.log(user)
@@ -21,7 +21,7 @@ export function createEmailAccount (email,password){
 export function loginEmailAccount (email,password){
     return async(dispatch)=>{
         try {
-            const user = await firebse
+            const user = await firebase
             .auth()
             .signInWithEmailAndPassword(email,password)
             console.log(user)
